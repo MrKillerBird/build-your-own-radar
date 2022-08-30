@@ -5,7 +5,7 @@
         "quadrant": "platforms",
         "isNew": "false",
         "description": "An open-source system for automating deployment, scaling, and management of containerised applications. We are operating our own clusters on EKS since 2019.",
-        "movedUp": "true",
+        "movedUp": "false",
         "movedDown": "false"
     },
     {
@@ -15,7 +15,7 @@
         "isNew": "false",
         "description": "<p>SonarQube is an automatic code review tool to detect bugs, vulnerabilities, and code smells in your code. It can integrate with your existing workflow to enable continuous code inspection across your project branches and pull requests.</p>",
         "movedUp": "false",
-        "movedDown": "true"
+        "movedDown": "false"
     },
     {
         "name": "Golang",
