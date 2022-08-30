@@ -4,7 +4,8 @@
         "ring": "adopt",
         "quadrant": "platforms",
         "isNew": "false",
-        "description": "An open-source system for automating deployment, scaling, and management of containerised applications. We are operating our own clusters on EKS since 2019."
+        "description": "An open-source system for automating deployment, scaling, and management of containerised applications. We are operating our own clusters on EKS since 2019.",
+        "movedUp": "true"
     },
     {
         "name": "Sonarqube",
