@@ -1,0 +1,464 @@
+[
+    {
+        "name": "EKS (Kubernetes)",
+        "ring": "adopt",
+        "quadrant": "platforms",
+        "isNew": "false",
+        "description": "An open-source system for automating deployment, scaling, and management of containerised applications. We are operating our own clusters on EKS since 2019."
+    },
+    {
+        "name": "Sonarqube",
+        "ring": "adopt",
+        "quadrant": "tools",
+        "isNew": "false",
+        "description": "<p>SonarQube is an automatic code review tool to detect bugs, vulnerabilities, and code smells in your code. It can integrate with your existing workflow to enable continuous code inspection across your project branches and pull requests.</p>"
+    },
+    {
+        "name": "Golang",
+        "ring": "adopt",
+        "quadrant": "languages & frameworks",
+        "isNew": "false",
+        "description": "Go is a statically typed, compiled programming language designed at Google by Robert Griesemer, Rob Pike, and Ken Thompson. It is syntactically similar to C, but with memory safety, garbage collection, structural typing, and CSP-style concurrency."
+    },
+    {
+        "name": "Typescript",
+        "ring": "adopt",
+        "quadrant": "languages & frameworks",
+        "isNew": "false",
+        "description": "<p>TypeScript is a programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript and adds optional static typing to the language. It is designed for the development of large applications and transpiles to JavaScript. As it is a superset of JavaScript, existing JavaScript programs are also valid TypeScript programs.</p>"
+    },
+    {
+        "name": "NodeJS",
+        "ring": "adopt",
+        "quadrant": "languages & frameworks",
+        "isNew": "false",
+        "description": "<p>Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.</p>"
+    },
+    {
+        "name": "Tailwind",
+        "ring": "adopt",
+        "quadrant": "tools",
+        "isNew": "true",
+        "description": "A utility-first CSS framework packed with classes like flex , pt-4 , text-center and rotate-90 that can be composed to build any design, directly in your markup."
+    },
+    {
+        "name": "AWS Lambda",
+        "ring": "adopt",
+        "quadrant": "platforms",
+        "isNew": "false",
+        "description": "<p>AWS Lambda is a serverless, event-driven compute service that lets you run code for virtually any type of application or backend service without provisioning or managing servers. You can trigger Lambda from over 200 AWS services and software as a service (SaaS) applications, and only pay for what you use.</p>"
+    },
+    {
+        "name": "AWS SES",
+        "ring": "adopt",
+        "quadrant": "platforms",
+        "isNew": "false",
+        "description": "<p>Amazon Simple Email Service (SES) is a cost-effective, flexible, and scalable email service that enables developers to send mail from within any application.&nbsp;</p>"
+    },
+    {
+        "name": "Terraform",
+        "ring": "adopt",
+        "quadrant": "platforms",
+        "isNew": "true",
+        "description": "<p>Terraform is an open-source infrastructure as code software tool that enables you to safely and predictably create, change, and improve infrastructure.</p>"
+    },
+    {
+        "name": "Bitrise",
+        "ring": "adopt",
+        "quadrant": "platforms",
+        "isNew": "false",
+        "description": "<p>Bitrise is full-featured mobile CI/CD in the cloud, for any platform.</p>"
+    },
+    {
+        "name": "Docker",
+        "ring": "adopt",
+        "quadrant": "tools",
+        "isNew": "false",
+        "description": "<p>Industry-leading container platform for rapid app/microservices development and delivery. Securely run applications from hybrid cloud to the edge.</p>"
+    },
+    {
+        "name": "Bitwarden",
+        "ring": "adopt",
+        "quadrant": "tools",
+        "isNew": "false",
+        "description": "<p>Bitwarden is an integrated open source password management solution for individuals, teams, and business organizations.</p>"
+    },
+    {
+        "name": "PHP/Laravel",
+        "ring": "adopt",
+        "quadrant": "languages & frameworks",
+        "isNew": "false",
+        "description": "<p>Laravel is a web application framework with expressive, elegant syntax. We’ve already laid the foundation — freeing you to create without sweating the small things.</p>"
+    },
+    {
+        "name": "Shopify",
+        "ring": "adopt",
+        "quadrant": "platforms",
+        "isNew": "true",
+        "description": "<p>Shopify is a complete commerce platform that lets you start, grow, and manage a business.</p>"
+    },
+    {
+        "name": "React",
+        "ring": "adopt",
+        "quadrant": "languages & frameworks",
+        "isNew": "false",
+        "description": "<p>A JavaScript library for building user interfaces</p>"
+    },
+    {
+        "name": "AWS EC2",
+        "ring": "adopt",
+        "quadrant": "platforms",
+        "isNew": "false",
+        "description": "<p>Amazon EC2 provides secure, resizable compute in the cloud, offering the broadest choice of processor, storage, networking, OS, and purchase model.</p>"
+    },
+    {
+        "name": "AWS S3",
+        "ring": "adopt",
+        "quadrant": "platforms",
+        "isNew": "false",
+        "description": "<p>Amazon S3 is cloud object storage with industry-leading scalability, data availability, security, and performance.</p>"
+    },
+    {
+        "name": "AWS Cloudfront",
+        "ring": "adopt",
+        "quadrant": "platforms",
+        "isNew": "false",
+        "description": "<p>Amazon CloudFront is a content delivery network (CDN) service built for high performance, security, and developer convenience.</p>"
+    },
+    {
+        "name": "AWS Route53",
+        "ring": "adopt",
+        "quadrant": "platforms",
+        "isNew": "false",
+        "description": "<p>Amazon Route 53 is a highly available and scalable cloud Domain Name System (DNS) web service.&nbsp;</p>"
+    },
+    {
+        "name": "Grafana",
+        "ring": "adopt",
+        "quadrant": "tools",
+        "isNew": "true",
+        "description": "<p>Grafana is the open source analytics &amp; monitoring solution for every database.</p>"
+    },
+    {
+        "name": "Strapi",
+        "ring": "adopt",
+        "quadrant": "platforms",
+        "isNew": "true",
+        "description": "<p>Strapi is the next-gen headless CMS, open-source, javascript, enabling content-rich experiences to be created, managed and exposed to any digital device.</p>"
+    },
+    {
+        "name": "Nova CMS",
+        "ring": "adopt",
+        "quadrant": "platforms",
+        "isNew": "true",
+        "description": "<p>Nova is a beautifully-designed administration panel for Laravel. Carefully crafted by the creators of Laravel, Nova is designed to make you the most productive developer in the galaxy.</p>"
+    },
+    {
+        "name": "PostgreSQL",
+        "ring": "adopt",
+        "quadrant": "platforms",
+        "isNew": "false",
+        "description": "<p>PostgreSQL is a powerful, open source object-relational database system with over 30 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance.</p>"
+    },
+    {
+        "name": "Bitbucket",
+        "ring": "adopt",
+        "quadrant": "platforms",
+        "isNew": "false",
+        "description": "<p>Build, test, and deploy with unlimited private or public space with Bitbucket. One tool for all your professional needs from code to deployment.</p>"
+    },
+    {
+        "name": "GIT",
+        "ring": "adopt",
+        "quadrant": "tools",
+        "isNew": "false",
+        "description": "<p>Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.</p>"
+    },
+    {
+        "name": "Codeship",
+        "ring": "adopt",
+        "quadrant": "platforms",
+        "isNew": "false",
+        "description": "<p>CloudBees CodeShip is a Software as a Service (SaaS) solution that empowers engineering teams to implement and optimize CI and CD in the cloud.</p>"
+    },
+    {
+        "name": "Kibana/APM",
+        "ring": "adopt",
+        "quadrant": "tools",
+        "isNew": "false",
+        "description": "<p>The APM app in Kibana allows you to monitor your software services and applications in real-time; visualize detailed performance information.</p>"
+    },
+    {
+        "name": "Rancher",
+        "ring": "adopt",
+        "quadrant": "platforms",
+        "isNew": "false",
+        "description": "<p>Rancher, the open-source multi-cluster orchestration platform, lets operations teams deploy, manage and secure enterprise Kubernetes.&nbsp;</p>"
+    },
+    {
+        "name": "ArchiMate",
+        "ring": "adopt",
+        "quadrant": "tools",
+        "isNew": "true",
+        "description": "<p>ArchiMate is an open and independent enterprise architecture modeling language to support the description, analysis and visualization of architecture within and across business domains in an unambiguous way.</p>"
+    },
+    {
+        "name": "AWS DynamoDB",
+        "ring": "adopt",
+        "quadrant": "platforms",
+        "isNew": "false",
+        "description": "<p>Amazon DynamoDB is a fully managed, serverless, key-value NoSQL database designed to run high-performance applications at any scale.</p>"
+    },
+    {
+        "name": "Storybook",
+        "ring": "adopt",
+        "quadrant": "tools",
+        "isNew": "false",
+        "description": "<p>Storybook is an open source tool for building UI components and pages in isolation. It streamlines UI development, testing, and documentation.</p>"
+    },
+    {
+        "name": "Jest",
+        "ring": "adopt",
+        "quadrant": "languages & frameworks",
+        "isNew": "false",
+        "description": "<p>Jest is a delightful JavaScript Testing Framework with a focus on simplicity.</p>"
+    },
+    {
+        "name": "Playwright",
+        "ring": "adopt",
+        "quadrant": "languages & frameworks",
+        "isNew": "true",
+        "description": "<p>Playwright enables reliable end-to-end testing for modern web apps.</p>"
+    },
+    {
+        "name": "Cucumber",
+        "ring": "adopt",
+        "quadrant": "tools",
+        "isNew": "false",
+        "description": "<p>Strengthen your collaboration with Cucumber. Define the feature files with all your stakeholders using Behavior-Driven Development (BDD). Automatically create documentation that’s up to date and easily shareable.</p>"
+    },
+    {
+        "name": "NGRX",
+        "ring": "adopt",
+        "quadrant": "languages & frameworks",
+        "isNew": "false",
+        "description": "<p>NgRx Store provides reactive state management for Angular apps inspired by Redux. Unify the events in your application and derive state using RxJS.</p>"
+    },
+    {
+        "name": "Angular",
+        "ring": "adopt",
+        "quadrant": "languages & frameworks",
+        "isNew": "false",
+        "description": "<p>Angular is a platform for building mobile and desktop web applications. Join the community of millions of developers who build compelling user interfaces.</p>"
+    },
+    {
+        "name": "NX",
+        "ring": "adopt",
+        "quadrant": "languages & frameworks",
+        "isNew": "false",
+        "description": "<p>Next generation build system with first class monorepo support and powerful integrations.</p>"
+    },
+    {
+        "name": "Visual Regression Testing",
+        "ring": "adopt",
+        "quadrant": "techniques",
+        "isNew": "false",
+        "description": "<p>Regression testing, in general, is validating that the changes we introduce to our source code do not have an unexpected impact on our system. With visual regression tests we are aiming for the same goal, but we are more concerned about the interface that is being presented to our final user rather than how functional our system is.</p>"
+    },
+    {
+        "name": "ESLint",
+        "ring": "adopt",
+        "quadrant": "tools",
+        "isNew": "false",
+        "description": "<p>ESLint statically analyzes your code to quickly find problems. ESLint is built into most text editors and you can run ESLint as part of your continuous integration pipeline.</p>"
+    },
+    {
+        "name": "Prettier",
+        "ring": "adopt",
+        "quadrant": "tools",
+        "isNew": "false",
+        "description": "<ul><li>An opinionated code formatter</li><li>Supports many languages</li><li>Integrates with most editors</li><li>Has few options</li></ul>"
+    },
+    {
+        "name": "ng-apimock",
+        "ring": "adopt",
+        "quadrant": "tools",
+        "isNew": "false",
+        "description": "<p>ng-apimock is a NodeJS plugin that provides the ability to use scenario based api mocking<br>&nbsp;</p>"
+    },
+    {
+        "name": "Ionic",
+        "ring": "adopt",
+        "quadrant": "languages & frameworks",
+        "isNew": "true",
+        "description": "<p>Ionic Framework's app development platform builds amazing cross-platform mobile, web, and desktop apps all with one shared code base and open-web standards.</p>"
+    },
+    {
+        "name": "Argo CD",
+        "ring": "trial",
+        "quadrant": "tools",
+        "isNew": "true",
+        "description": "Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes."
+    },
+    {
+        "name": "GitOps",
+        "ring": "trial",
+        "quadrant": "techniques",
+        "isNew": "true",
+        "description": "GitOps is a process of automating IT infrastructure using infrastructure as code and software development best practices such as Git, code review, and CI/CD."
+    },
+    {
+        "name": "Helm charts",
+        "ring": "trial",
+        "quadrant": "tools",
+        "isNew": "true",
+        "description": "<p>Helm Charts are simply Kubernetes YAML manifests combined into a single package that can be advertised to your Kubernetes clusters. To host our private helm repositories we need to host our own chart repo (e.g. ChartMuseum: https://chart.newstory.cloud)</p>"
+    },
+    {
+        "name": "Zabbix",
+        "ring": "trial",
+        "quadrant": "tools",
+        "isNew": "false",
+        "description": "<p>Zabbix is a mature and effortless enterprise-class open source monitoring solution for network monitoring and application monitoring of millions of metrics.</p>"
+    },
+    {
+        "name": "Vault",
+        "ring": "trial",
+        "quadrant": "tools",
+        "isNew": "true",
+        "description": "Vault secures, stores, and tightly controls access to tokens, passwords, certificates, API keys, and other secrets in modern computing."
+    },
+    {
+        "name": "Cluster Monitoring",
+        "ring": "trial",
+        "quadrant": "techniques",
+        "isNew": "true",
+        "description": "<ul class=\"todo-list\"><li><label class=\"todo-list__label\"><input type=\"checkbox\" disabled=\"disabled\"><span class=\"todo-list__label__description\">Momenteel draait de monitoring binnen het cluster (?), dat zou in een ander cluster moeten.</span></label></li><li><label class=\"todo-list__label\"><input type=\"checkbox\" disabled=\"disabled\"><span class=\"todo-list__label__description\">Elastic / Sonarqube updaten of overschakelen naar de cloud versie</span></label></li><li><label class=\"todo-list__label\"><input type=\"checkbox\" disabled=\"disabled\"><span class=\"todo-list__label__description\">Performance monitoring en testing (denk aan deals query, of /hotels endpoint) die duidelijk laat weten als een bepaalde aanpassing performance impact heeft.</span></label></li></ul><p>&nbsp;</p>"
+    },
+    {
+        "name": "Lens",
+        "ring": "trial",
+        "quadrant": "tools",
+        "isNew": "true",
+        "description": "Lens is the way the world runs Kubernetes. It provides the full situational awareness for everything that runs in Kubernetes. It’s lowering the barrier of entry for people just getting started and radically improving productivity for people with more experience.\n\nLens is built on open source and backed by a number of Kubernetes and cloud native ecosystem pioneers. With over 450,000 users and 17,000 stars on GitHub, it’s the largest and most advanced Kubernetes platform in the world."
+    },
+    {
+        "name": "Webflow",
+        "ring": "trial",
+        "quadrant": "platforms",
+        "isNew": "true",
+        "description": "<p><a href=\"https://www.webflow.com\">Webflow</a> is a fully dynamic cloud-based CMS that gives an enormous amount of freedom to build really great looking, dynamic websites that are both reliable and requires much less maintenance than Wordpress. Webflow is 100% cloud based and all development takes place in a browser-based tool. Though it should not be mistaken for a simple tool, all the power of code based platforms is still available. This means that Webflow still requires deep knowledge in web development but with little to no coding - a true NoCode platform for web development.&nbsp;</p><p><a href=\"https://www.stormfors.com/insights/what-is-webflow\">What is webflow?</a></p>"
+    },
+    {
+        "name": "Branching strategie",
+        "ring": "trial",
+        "quadrant": "techniques",
+        "isNew": "true",
+        "description": "<p>De branching strategie met iteration branches die gekoppeld zijn aan een sprint en daar naast een Master en een Develop branch geven veel merge overhead bij een livegang. Door gebruik te maken van Trunk based development kunnen we deze stappen reduceren en sneller deployen.</p>"
+    },
+    {
+        "name": "E2E-testen backend",
+        "ring": "trial",
+        "quadrant": "techniques",
+        "isNew": "true",
+        "description": "<p>Postman collections zijn error-prone, niet GIT vriendelijk en de Tool is geen fatsoenlijke IDE. Ook lopen deze ‘E2E’ tests niet in de pipeline en hebben geen codecoverage checks.</p>"
+    },
+    {
+        "name": "Versioned images",
+        "ring": "trial",
+        "quadrant": "techniques",
+        "isNew": "true",
+        "description": "<p>In plaats van commit hashes (dit in combinatie met pull-based deployments)</p>"
+    },
+    {
+        "name": "Monorepo voor microservices",
+        "ring": "assess",
+        "quadrant": "techniques",
+        "isNew": "false",
+        "description": "<p>Momenteel wordt er voor elke microservice een repository opgezet, met bijbehorende pipeline in bitbucket, Dockerfile en Mock server. Als er een feature wordt toegevoegd die meerdere microservices raakt (BFF, availability service en CWI gateway bijvoorbeeld), levert dat in dit voorbeeld 3 PRs op, die elk worden gereviewed en approved. Ook zal bijvoorbeeld bij een aanpassing in de hotel service, niet direct de tests draaien van de consumers van die service om te zien of de aanpassing daar geen fouten oplevert. Een monorepository heeft als voordeel dat er minder overhead is en bijvoorbeeld een dependency update (Go, Capila of een andere) makkelijk kan worden doorgevoerd. Er is maar 1 docker file, sonar script, etc.</p>"
+    },
+    {
+        "name": "Istio",
+        "ring": "assess",
+        "quadrant": "platforms",
+        "isNew": "true",
+        "description": "<p>Simplify observability, traffic management, security, and policy with the leading service mesh.</p>"
+    },
+    {
+        "name": "Linkerd",
+        "ring": "assess",
+        "quadrant": "platforms",
+        "isNew": "true",
+        "description": "<p>Originally, Buoyant built Linkerd for native machines using Scala and made it open-source. It joined CNCF in 2017 as an incubating project in the service mesh category. Buoyant later modified Linkerd using Golang and Rust, with Kubernetes still the target; this resulted in Linkerd2. Linkerd has gained a lot of popularity as a minimalist, ultra-light, security-first service mesh for Kubernetes.</p>"
+    },
+    {
+        "name": "Skaffold",
+        "ring": "assess",
+        "quadrant": "tools",
+        "isNew": "true",
+        "description": "<p>Het cluster lokaal kunnen draaien met bijvoorbeeld Skaffold kan enorm helpen in het analyseren en sneller werken. Enkel de egress hoeft gemocked te worden (CWI bijvoorbeeld).</p>"
+    },
+    {
+        "name": "Coldfusion/Lucee",
+        "ring": "hold",
+        "quadrant": "languages & frameworks",
+        "isNew": "false",
+        "description": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(102,102,102);font-family:&quot;Open Sans&quot;, sans-serif;\">Lucee is the leading open-source CFML application server/engine. Lucee provides a lot of functionality (tags and functions) to deal with all kinds of web related actions. Manipulating images, PDF files, XML, string, numbers, dates and a lot more. You name it, Lucee does it for you! Lucee has built-in support not only to call existing web services, it can also generate web services for you in the most simple way.</span></p>"
+    },
+    {
+        "name": "Kirby",
+        "ring": "hold",
+        "quadrant": "platforms",
+        "isNew": "false",
+        "description": "Kirby is a PHP file-based content management system."
+    },
+    {
+        "name": "Wordpress",
+        "ring": "hold",
+        "quadrant": "platforms",
+        "isNew": "false",
+        "description": "WordPress is open source PHP software you can use to create a website, blog, or app."
+    },
+    {
+        "name": "Forrest CMS",
+        "ring": "hold",
+        "quadrant": "platforms",
+        "isNew": "false",
+        "description": ""
+    },
+    {
+        "name": "Bayswater CMS",
+        "ring": "hold",
+        "quadrant": "platforms",
+        "isNew": "false",
+        "description": ""
+    },
+    {
+        "name": "Magento",
+        "ring": "hold",
+        "quadrant": "platforms",
+        "isNew": "false",
+        "description": "<p>De e-commerce software werd ontwikkeld in samenwerking met vrijwilligers en steun van Varien Inc. (nu Magento Inc.), een besloten vennootschap gevestigd in Culver City, Californië. Varien publiceerde de eerste versie op 31 maart 2008. Roy Rubin, voormalig CEO van Varien, verkocht later een groot deel van het bedrijf aan eBay in 2011. De veilingsite had al 49 procent van de aandelen van Magento in handen voor dit moment, maar het volledige eigendom is in juni 2011 gekocht door eBay.</p>"
+    },
+    {
+        "name": "Nagios",
+        "ring": "hold",
+        "quadrant": "tools",
+        "isNew": "false",
+        "description": "<p>Monitor All Critical Infrastructure Components Efficiently &amp; Fast With Proactive Alerts.</p>"
+    },
+    {
+        "name": "MSSQL",
+        "ring": "hold",
+        "quadrant": "platforms",
+        "isNew": "false",
+        "description": "<p>MS SQL Server is een doorontwikkeling van Sybase en is Microsofts product in de markt voor enterprise databases.&nbsp;</p>"
+    },
+    {
+        "name": "Kentico Kontent",
+        "ring": "hold",
+        "quadrant": "platforms",
+        "isNew": "false",
+        "description": ""
+    }
+]
