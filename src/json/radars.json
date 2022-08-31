@@ -478,7 +478,7 @@
     },
     {
         "name": "Monorepo voor microservices",
-        "ring": "test",
+        "ring": "trial",
         "quadrant": "techniques",
         "isNew": "false",
         "description": "<p>Momenteel wordt er voor elke microservice een repository opgezet, met bijbehorende pipeline in bitbucket, Dockerfile en Mock server. Als er een feature wordt toegevoegd die meerdere microservices raakt (BFF, availability service en CWI gateway bijvoorbeeld), levert dat in dit voorbeeld 3 PRs op, die elk worden gereviewed en approved. Ook zal bijvoorbeeld bij een aanpassing in de hotel service, niet direct de tests draaien van de consumers van die service om te zien of de aanpassing daar geen fouten oplevert. Een monorepository heeft als voordeel dat er minder overhead is en bijvoorbeeld een dependency update (Go, Capila of een andere) makkelijk kan worden doorgevoerd. Er is maar 1 docker file, sonar script, etc.</p>",
@@ -487,7 +487,7 @@
     },
     {
         "name": "Istio",
-        "ring": "test",
+        "ring": "trial",
         "quadrant": "platforms",
         "isNew": "true",
         "description": "<p>Simplify observability, traffic management, security, and policy with the leading service mesh.</p>",
@@ -496,7 +496,7 @@
     },
     {
         "name": "Linkerd",
-        "ring": "test",
+        "ring": "trial",
         "quadrant": "platforms",
         "isNew": "true",
         "description": "<p>Originally, Buoyant built Linkerd for native machines using Scala and made it open-source. It joined CNCF in 2017 as an incubating project in the service mesh category. Buoyant later modified Linkerd using Golang and Rust, with Kubernetes still the target; this resulted in Linkerd2. Linkerd has gained a lot of popularity as a minimalist, ultra-light, security-first service mesh for Kubernetes.</p>",
@@ -505,7 +505,7 @@
     },
     {
         "name": "Skaffold",
-        "ring": "test",
+        "ring": "trial",
         "quadrant": "tools",
         "isNew": "true",
         "description": "<p>Het cluster lokaal kunnen draaien met bijvoorbeeld Skaffold kan enorm helpen in het analyseren en sneller werken. Enkel de egress hoeft gemocked te worden (CWI bijvoorbeeld).</p>",
