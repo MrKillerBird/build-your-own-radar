@@ -123,54 +123,81 @@ const Radar = function (size, radar) {
     })
   }
 
-  function triangle(blip, x, y, order, group) {
+  function circleNew(blip, x, y, order, group) {
     return group
-      .append('path')
+      .append('circle')
       .attr(
-        'd',
-        'M412.201,311.406c0.021,0,0.042,0,0.063,0c0.067,0,0.135,0,0.201,0c4.052,0,6.106-0.051,8.168-0.102c2.053-0.051,4.115-0.102,8.176-0.102h0.103c6.976-0.183,10.227-5.306,6.306-11.53c-3.988-6.121-4.97-5.407-8.598-11.224c-1.631-3.008-3.872-4.577-6.179-4.577c-2.276,0-4.613,1.528-6.48,4.699c-3.578,6.077-3.26,6.014-7.306,11.723C402.598,306.067,405.426,311.406,412.201,311.406',
+        'r',
+        blip.width * 1.35
       )
       .attr(
         'transform',
         'scale(' +
-          blip.width / 34 +
+          blip.width / 80 +
           ') translate(' +
-          (-404 + x * (34 / blip.width) - 17) +
+          (20 + x * (80 / blip.width) - 17) +
           ', ' +
-          (-282 + y * (34 / blip.width) - 17) +
+          (20 + y * (80 / blip.width) - 17) +
+          ')',
+      )
+      .attr('class', order),
+    group
+      .append('path')
+      .attr(
+        'd',
+        'M75,119.17c-24.35,0-44.17-19.81-44.17-44.17S50.65,30.83,75,30.83c24.35,0,44.16,19.81,44.16,44.17 S99.35,119.17,75,119.17z M75,38.54C54.9,38.54,38.54,54.9,38.54,75S54.9,111.46,75,111.46S111.46,95.1,111.46,75 S95.11,38.54,75,38.54z',
+      )
+      .attr(
+        'transform',
+        'scale(' +
+          blip.width / 80 +
+          ') translate(' +
+          (-55 + x * (80 / blip.width) - 17) +
+          ', ' +
+          (-55 + y * (80 / blip.width) - 17) +
           ')',
       )
       .attr('class', order)
   }
 
-  function triangleLegend(x, y, group) {
+  function circleNewLegend(x, y, group) {
     return group
-      .append('path')
+      .append('circle')
       .attr(
-        'd',
-        'M412.201,311.406c0.021,0,0.042,0,0.063,0c0.067,0,0.135,0,0.201,0c4.052,0,6.106-0.051,8.168-0.102c2.053-0.051,4.115-0.102,8.176-0.102h0.103c6.976-0.183,10.227-5.306,6.306-11.53c-3.988-6.121-4.97-5.407-8.598-11.224c-1.631-3.008-3.872-4.577-6.179-4.577c-2.276,0-4.613,1.528-6.48,4.699c-3.578,6.077-3.26,6.014-7.306,11.723C402.598,306.067,405.426,311.406,412.201,311.406',
+        'r',
+        26
       )
       .attr(
         'transform',
-        'scale(' + 22 / 64 + ') translate(' + (-404 + x * (64 / 22) - 17) + ', ' + (-282 + y * (64 / 22) - 17) + ')',
+        'scale(' + 22 / 128 + ') translate(' + (20 + x * (128 / 22) - 17) + ', ' + (20 + y * (128 / 22) - 17) + ')',
+      ),
+    group
+      .append('path')
+      .attr(
+        'd',
+        'M75,119.17c-24.35,0-44.17-19.81-44.17-44.17S50.65,30.83,75,30.83c24.35,0,44.16,19.81,44.16,44.17 S99.35,119.17,75,119.17z M75,38.54C54.9,38.54,38.54,54.9,38.54,75S54.9,111.46,75,111.46S111.46,95.1,111.46,75 S95.11,38.54,75,38.54z',
+      )
+      .attr(
+        'transform',
+        'scale(' + 22 / 128 + ') translate(' + (-55 + x * (128 / 22) - 17) + ', ' + (-55 + y * (128 / 22) - 17) + ')',
       )
   }
 
   function circle(blip, x, y, order, group) {
     return (group || svg)
-      .append('path')
+      .append('circle')
       .attr(
-        'd',
-        'M420.084,282.092c-1.073,0-2.16,0.103-3.243,0.313c-6.912,1.345-13.188,8.587-11.423,16.874c1.732,8.141,8.632,13.711,17.806,13.711c0.025,0,0.052,0,0.074-0.003c0.551-0.025,1.395-0.011,2.225-0.109c4.404-0.534,8.148-2.218,10.069-6.487c1.747-3.886,2.114-7.993,0.913-12.118C434.379,286.944,427.494,282.092,420.084,282.092',
+        'r',
+        blip.width * 1.35
       )
       .attr(
         'transform',
         'scale(' +
-          blip.width / 34 +
+          blip.width / 80 +
           ') translate(' +
-          (-404 + x * (34 / blip.width) - 17) +
+          (20 + x * (80 / blip.width) - 17) +
           ', ' +
-          (-282 + y * (34 / blip.width) - 17) +
+          (20 + y * (80 / blip.width) - 17) +
           ')',
       )
       .attr('class', order)
@@ -178,16 +205,144 @@ const Radar = function (size, radar) {
 
   function circleLegend(x, y, group) {
     return (group || svg)
-      .append('path')
+      .append('circle')
       .attr(
-        'd',
-        'M420.084,282.092c-1.073,0-2.16,0.103-3.243,0.313c-6.912,1.345-13.188,8.587-11.423,16.874c1.732,8.141,8.632,13.711,17.806,13.711c0.025,0,0.052,0,0.074-0.003c0.551-0.025,1.395-0.011,2.225-0.109c4.404-0.534,8.148-2.218,10.069-6.487c1.747-3.886,2.114-7.993,0.913-12.118C434.379,286.944,427.494,282.092,420.084,282.092',
+        'r',
+        25
       )
       .attr(
         'transform',
-        'scale(' + 22 / 64 + ') translate(' + (-404 + x * (64 / 22) - 17) + ', ' + (-282 + y * (64 / 22) - 17) + ')',
+        'scale(' + 22 / 128 + ') translate(' + (20 + x * (128 / 22) - 17) + ', ' + (16 + y * (128 / 22) - 17) + ')',
       )
   }
+
+  function triangleUp(blip, x, y, order, group) {
+    return (group || svg)
+      .append('path')
+      .attr(
+        'd',
+        'M -11,5 11,5 0,-13 z',
+      )
+      .attr(
+        'transform',
+        'scale(' +
+          blip.width / 18 +
+          ') translate(' +
+          (18 + x * (18 / blip.width) - 17) +
+          ', ' +
+          (19 + y * (18/ blip.width) - 17) +
+          ')',
+      )
+      .attr('class', order)
+  }
+
+  function triangleUpLegend(x, y, group) {
+    return group
+      .append('path')
+      .attr(
+        'd',
+        'M -11,5 11,5 0,-13 z',
+      )
+      .attr(
+        'transform',
+        'scale(' + 22 / 32 + ') translate(' + (18 + x * (32 / 22) - 17) + ', ' + (20 + y * (32 / 22) - 17) + ')',
+      )
+  }
+
+  function triangleDown(blip, x, y, order, group) {
+    return (group || svg)
+      .append('path')
+      .attr(
+        'd',
+        'M -11,-5 11,-5 0,13 z',
+      )
+      .attr(
+        'transform',
+        'scale(' +
+          blip.width / 18 +
+          ') translate(' +
+          (17.5 + x * (18 / blip.width) - 17) +
+          ', ' +
+          (15 + y * (18 / blip.width) - 17) +
+          ')',
+      )
+      .attr('class', order)
+    }
+
+    function triangleDownLegend(x, y, group) {
+      return group
+        .append('path')
+        .attr(
+          'd',
+          'M -11,-5 11,-5 0,13 z',
+        )
+        .attr(
+          'transform',
+          'scale(' + 22 / 32 + ') translate(' + (18 + x * (32 / 22) - 17) + ', ' + (12 + y * (32 / 22) - 17) + ')',
+        )
+    }
+
+    function NewStoryLogo(x, y, scale, group) {
+      return group
+        .append('path')
+        .attr(
+          'd',
+          'M20.128,9.1699 C15.854,9.1699 12.357,11.0349 9.792,14.0659 L9.792,10.1799 L3.55271368e-15,10.1799 L3.55271368e-15,50.2019 L10.258,50.2019 L10.258,26.8109 C10.258,22.3029 13.444,18.8839 18.03,18.8839 C24.791,18.8839 25.49,24.4799 25.49,26.8109 L25.49,50.2019 L35.748,50.2019 L35.748,26.8109 C35.748,16.2409 29.531,9.1699 20.128,9.1699',
+        ),
+        group
+        .append('path')
+        .attr(
+          'd',
+          'M51.1705,25.7998 C52.6475,21.1378 56.3775,18.1848 61.0405,18.1848 C65.9365,18.1848 69.8215,21.1378 71.0655,25.7998 L51.1705,25.7998 Z M61.1175,9.1698 C49.8495,9.1698 40.6015,18.6508 40.6015,30.2298 C40.6015,41.8098 49.8495,51.1348 61.1175,51.1348 C71.0655,51.1348 78.1365,45.6168 80.4685,37.4568 L69.5105,37.4568 C67.8005,40.6438 64.4595,42.1198 61.0405,42.1198 C56.2215,42.1198 52.3365,39.0888 51.0155,34.1938 L81.2455,34.1938 C82.7215,18.3398 72.9305,9.1698 61.1175,9.1698 L61.1175,9.1698 Z',
+        ),
+        group
+        .append('polygon')
+        .attr(
+          'points',
+          '124.9693 38.1562 117.6643 10.1792 107.4063 10.1792 100.1013 38.1562 93.1073 10.1792 82.2273 10.1792 94.6613 50.2022 105.3083 50.2022 112.5353 23.7022 119.7623 50.2022 130.3313 50.2022 142.8433 10.1792 131.9633 10.1792',
+        ),
+        group
+        .append('polygon')
+        .attr(
+          'points',
+          '147.0767 23.5498 159.2247 29.6898 147.0767 35.8858 147.0767 45.0408 167.2787 33.8958 167.2787 25.5398 147.0767 14.3308',
+        ),
+        group
+        .append('path')
+        .attr(
+          'd',
+          'M190.6353,25.1006 C185.6613,24.3236 182.7083,23.6236 182.7083,21.5266 C182.7083,20.0496 184.6513,18.3396 189.3913,18.3396 C193.1993,18.3396 195.4533,19.8166 196.0753,21.6816 L206.7213,21.6816 C205.4003,14.1436 198.5623,9.1696 189.3913,9.1696 C177.8123,9.1696 172.2953,15.6976 172.2953,21.9926 C172.2953,30.9296 181.8533,32.8716 189.0033,33.9596 C195.9973,35.0476 197.3963,35.9806 197.3963,38.2346 C197.3963,40.5656 194.2873,41.8096 190.1693,41.8096 C187.1383,41.8096 183.0193,40.5656 181.6203,37.1466 L171.2073,37.1466 C172.4503,45.7726 179.9893,51.1346 190.1693,51.1346 C200.4273,51.1346 207.7313,45.5386 207.7313,37.6126 C207.7313,28.9096 200.5823,26.7326 190.6353,25.1006',
+        ),
+        group
+        .append('path')
+        .attr(
+          'd',
+          'M225.1465,33.416 L225.1465,19.272 L232.3735,19.272 L232.3735,10.18 L225.1465,10.18 L225.1465,-3.55271368e-15 L214.8875,-3.55271368e-15 L214.8875,10.18 L210.0695,10.18 L210.0695,19.272 L214.8875,19.272 L214.8875,33.339 C214.8875,44.296 221.1045,51.368 232.8395,50.124 L232.8395,40.799 C227.7105,41.109 225.1465,39.012 225.1465,33.416',
+        ),
+        group
+        .append('path')
+        .attr(
+          'd',
+          'M256.1446,41.7314 C250.7056,41.7314 246.2756,37.0684 246.2756,30.3074 C246.2756,23.3914 250.7056,18.5734 256.1446,18.5734 C261.5846,18.5734 266.0146,23.3914 266.0146,30.3074 C266.0146,37.0684 261.5846,41.7314 256.1446,41.7314 M256.1446,9.1694 C245.0326,9.1694 236.0176,18.2614 236.0176,30.2294 C236.0176,42.1974 245.0326,51.1344 256.1446,51.1344 C267.2576,51.1344 276.3506,42.1974 276.3506,30.2294 C276.3506,18.2614 267.2576,9.1694 256.1446,9.1694',
+        ),
+        group
+        .append('path')
+        .attr(
+          'd',
+          'M291.6905,14.1435 L291.6905,10.1795 L281.8985,10.1795 L281.8985,50.2025 L292.1575,50.2025 L292.1575,30.5405 C292.1575,27.3545 292.5455,24.0905 294.7215,21.8365 C297.0525,19.3495 300.4725,18.8835 304.5905,19.3495 L304.5905,9.4025 C299.7725,8.6255 294.9555,10.1025 291.6905,14.1435',
+        ),
+        group
+        .append('path')
+        .attr(
+          'd',
+          'M334.1602,10.1797 L334.1602,33.5717 C334.1602,38.0787 330.9742,41.4207 326.3892,41.4207 C319.7062,41.4207 318.9292,35.8257 318.9292,33.5717 L318.9292,10.1797 L308.6712,10.1797 L308.6712,33.5717 C308.6712,44.0627 315.1982,51.1347 324.9902,51.1347 C328.6422,51.1347 331.7512,49.8917 334.1602,47.8707 L334.1602,52.5337 C334.1602,56.2637 332.2182,60.2277 326.6222,60.2277 C323.1252,60.2277 320.4822,58.7507 319.8612,55.7977 L309.2152,55.7977 C310.6132,64.0347 317.8412,69.7857 326.6222,69.7857 C337.3472,69.7857 344.4192,62.6367 344.4192,51.8337 L344.4192,10.1797 L334.1602,10.1797 Z',
+        ),
+        group
+        .attr(
+          'transform',
+          'scale(' + scale + ') translate(' + x + ', ' + y + ')',
+        )
+    }
 
   function addRing(ring, order) {
     var table = d3.select('.quadrant-table.' + order)
@@ -207,7 +362,7 @@ const Radar = function (size, radar) {
     angleDelta = angleDelta > 45 ? 45 : angleDelta
     var angle = toRadian(chance.integer({ min: angleDelta, max: 90 - angleDelta }))
 
-    var x = center() + radius * Math.cos(angle) * adjustX
+    var x = center() + radius * Math.cos(angle) * adjustX 
     var y = center() + radius * Math.sin(angle) * adjustY
 
     return [x, y]
@@ -309,7 +464,11 @@ const Radar = function (size, radar) {
       .attr('id', 'blip-link-' + blip.number())
 
     if (blip.isNew()) {
-      triangle(blip, x, y, order, group)
+      circleNew(blip, x, y, order, group)
+    } else if(blip.movedUp()) { 
+      triangleUp(blip, x, y, order, group)
+    } else if(blip.movedDown()) { 
+      triangleDown(blip, x, y, order, group)
     } else {
       circle(blip, x, y, order, group)
     }
@@ -398,7 +557,9 @@ const Radar = function (size, radar) {
   function drawLegend(order) {
     removeRadarLegend()
 
-    var triangleKey = 'New or moved'
+    var circleNewKey = 'New'
+    var triangleUpKey = 'Moved Up'
+    var triangleDownKey = 'Moved Down'
     var circleKey = 'No change'
 
     var container = d3
@@ -409,24 +570,50 @@ const Radar = function (size, radar) {
     var x = 10
     var y = 10
 
+    var clientWidth = document.getElementById('radar-plot').clientWidth
+    var logoScale = clientWidth / 100 * 0.03
+    
+    var logoX = 3334 / 100 * 44.75
+    var logoY = 3373 / 100 * 48.5
+    
     if (order === 'first') {
       x = (4 * size) / 5
       y = (1 * size) / 5
+      logoX = (0 + x * (64 / 22) - 17)
+      logoY = (12 + y * (64 / 22) - 17)
+      //logoX = 3334 / 100 * 0.8
+      //logoY = 3373 / 100 * 95.5
+      logoScale = 22 / 64
     }
 
     if (order === 'second') {
       x = (1 * size) / 5 - 15
       y = (1 * size) / 5 - 20
+      logoX = (0 + x * (64 / 22) - 17)
+      logoY = (12 + y * (64 / 22) - 17)
+      //logoX = 3334 / 100 * 92.45
+      //logoY = 3373 / 100 * 95.5
+      logoScale = 22 / 64
     }
 
     if (order === 'third') {
       x = (1 * size) / 5 - 15
       y = (4 * size) / 5 + 15
+      logoX = (0 + x * (64 / 22) - 17)
+      logoY = (12 + y * (64 / 22) - 17)
+      //logoX = 3334 / 100 * 88.8
+      //logoY = 3373 / 100 * 2
+      logoScale = 22 / 64
     }
 
     if (order === 'fourth') {
       x = (4 * size) / 5
       y = (4 * size) / 5
+      logoX = (0 + x * (64 / 22) - 17)
+      logoY = (12 + y * (64 / 22) - 17)
+      //logoX = 3334 / 100 * 92.45
+      //logoY = 3373 / 100 * 95.5
+      logoScale = 22 / 64
     }
 
     d3.select('.legend')
@@ -434,21 +621,43 @@ const Radar = function (size, radar) {
       .transition()
       .style('visibility', 'visible')
 
-    triangleLegend(x, y, container)
+    label=container.append('g')
+    
+    NewStoryLogo(logoX, logoY, logoScale, label)
+
+    circleNewLegend(x, y + 30, container)
 
     container
       .append('text')
       .attr('x', x + 15)
-      .attr('y', y + 5)
+      .attr('y', y + 35)
       .attr('font-size', '0.8em')
-      .text(triangleKey)
+      .text(circleNewKey)
 
-    circleLegend(x, y + 20, container)
+    triangleUpLegend(x, y + 50, container)
 
     container
       .append('text')
       .attr('x', x + 15)
-      .attr('y', y + 25)
+      .attr('y', y + 55)
+      .attr('font-size', '0.8em')
+      .text(triangleUpKey)
+
+    triangleDownLegend(x, y + 70, container)
+
+    container
+      .append('text')
+      .attr('x', x + 15)
+      .attr('y', y + 75)
+      .attr('font-size', '0.8em')
+      .text(triangleDownKey)
+
+    circleLegend(x, y + 90, container)
+
+    container
+      .append('text')
+      .attr('x', x + 15)
+      .attr('y', y + 95)
       .attr('font-size', '0.8em')
       .text(circleKey)
   }
@@ -456,6 +665,7 @@ const Radar = function (size, radar) {
   function redrawFullRadar() {
     removeHomeLink()
     removeRadarLegend()
+    drawLegend()
     tip.hide()
     d3.selectAll('g.blip-link').attr('opacity', 1.0)
 
@@ -527,7 +737,7 @@ const Radar = function (size, radar) {
   }
 
   function plotHeader() {
-    document.querySelector('.hero-banner__title-text').innerHTML = document.title
+    document.querySelector('.hero-banner__title-text').innerHTML = "Technology Radar"
     const radarWrapper = d3.select('main .graph-placeholder')
     document.querySelector('.hero-banner__title-text').addEventListener('click', redrawFullRadar)
 
@@ -690,7 +900,7 @@ const Radar = function (size, radar) {
 
   self.plot = function () {
     var rings, quadrants, alternatives, currentSheet
-
+    
     rings = radar.rings()
     quadrants = radar.quadrants()
     alternatives = radar.getAlternatives()
@@ -726,6 +936,8 @@ const Radar = function (size, radar) {
       plotTexts(quadrantGroup, rings, quadrant)
       plotBlips(quadrantGroup, rings, quadrant)
     })
+
+    drawLegend()
   }
 
   return self
