@@ -33,7 +33,7 @@
       @include media-query-large {
         font-size: 3rem;
         width: 50%;
-        overflow: hidden;
+        overflow: visible;
         text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-line-clamp: 3;

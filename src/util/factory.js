@@ -50,7 +50,7 @@ const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
       quadrants[blip.quadrant] = new Quadrant(_.capitalize(blip.quadrant))
     }
     quadrants[blip.quadrant].add(
-      new Blip(blip.name, ringMap[blip.ring], blip.isNew.toLowerCase() === 'true', blip.topic, blip.description, blip.movedUp.toLowerCase() === 'true', blip.movedDown.toLowerCase() === 'true'),
+      new Blip(blip.name, ringMap[blip.ring], blip.isNew.toLowerCase() === 'true', blip.topic, blip.description, blip.movedUp === 'true', blip.movedDown === 'true'),
     )
   })
 

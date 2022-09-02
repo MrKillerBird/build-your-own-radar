@@ -539,6 +539,7 @@ const Radar = function (size, radar) {
         .html('&#171; Back to Radar home')
         .classed('home-link', true)
         .classed('selected', true)
+        .classed('button', true)
         .on('click', redrawFullRadar)
         .append('g')
         .attr('fill', '#626F87')
@@ -568,11 +569,12 @@ const Radar = function (size, radar) {
       .attr('class', 'legend legend' + '-' + order)
 
     var x = 10
-    var y = 10
+    var y = 5
 
     var clientWidth = document.getElementById('radar-plot').clientWidth
     var logoScale = clientWidth / 100 * 0.03
-    
+    var legendScale = 0.2 + clientWidth / 1000 * 0.8
+
     var logoX = 3334 / 100 * 44.75
     var logoY = 3373 / 100 * 48.5
     
@@ -584,6 +586,7 @@ const Radar = function (size, radar) {
       //logoX = 3334 / 100 * 0.8
       //logoY = 3373 / 100 * 95.5
       logoScale = 22 / 64
+      legendScale = 1
     }
 
     if (order === 'second') {
@@ -594,6 +597,7 @@ const Radar = function (size, radar) {
       //logoX = 3334 / 100 * 92.45
       //logoY = 3373 / 100 * 95.5
       logoScale = 22 / 64
+      legendScale = 1
     }
 
     if (order === 'third') {
@@ -604,6 +608,7 @@ const Radar = function (size, radar) {
       //logoX = 3334 / 100 * 88.8
       //logoY = 3373 / 100 * 2
       logoScale = 22 / 64
+      legendScale = 1
     }
 
     if (order === 'fourth') {
@@ -614,6 +619,7 @@ const Radar = function (size, radar) {
       //logoX = 3334 / 100 * 92.45
       //logoY = 3373 / 100 * 95.5
       logoScale = 22 / 64
+      legendScale = 1
     }
 
     d3.select('.legend')
@@ -622,39 +628,43 @@ const Radar = function (size, radar) {
       .style('visibility', 'visible')
 
     label=container.append('g')
+    legend=container.append('g')
+    legend.attr('transform', 'scale(' + legendScale + ')')
     
+    
+
     NewStoryLogo(logoX, logoY, logoScale, label)
 
-    circleNewLegend(x, y + 30, container)
+    circleNewLegend(x, y + 30, legend)
 
-    container
+    legend
       .append('text')
       .attr('x', x + 15)
       .attr('y', y + 35)
       .attr('font-size', '0.8em')
       .text(circleNewKey)
 
-    triangleUpLegend(x, y + 50, container)
+    triangleUpLegend(x, y + 50, legend)
 
-    container
+    legend
       .append('text')
       .attr('x', x + 15)
       .attr('y', y + 55)
       .attr('font-size', '0.8em')
       .text(triangleUpKey)
 
-    triangleDownLegend(x, y + 70, container)
+    triangleDownLegend(x, y + 70, legend)
 
-    container
+    legend
       .append('text')
       .attr('x', x + 15)
       .attr('y', y + 75)
       .attr('font-size', '0.8em')
       .text(triangleDownKey)
 
-    circleLegend(x, y + 90, container)
+    circleLegend(x, y + 90, legend)
 
-    container
+    legend
       .append('text')
       .attr('x', x + 15)
       .attr('y', y + 95)
@@ -820,7 +830,9 @@ const Radar = function (size, radar) {
     d3.selectAll('.quadrant-table.' + order).classed('selected', true)
     d3.selectAll('.blip-item-description').classed('expanded', false)
 
-    var scale = 2
+
+    var clientWidth = document.getElementById('radar-plot').clientWidth
+    var scale = 1 + clientWidth / 1000 * 0.8
 
     var adjustX = Math.sin(toRadian(startAngle)) - Math.cos(toRadian(startAngle))
     var adjustY = Math.cos(toRadian(startAngle)) + Math.sin(toRadian(startAngle))
