@@ -232,6 +232,10 @@ const GoogleSheetInput = function () {
   var self = {}
   var sheet
 
+  sheet = JSONFile("https://ns-techradar-strapi.newstory.cloud/api/radars")
+  sheet.init().build()
+
+  /*
   self.build = function () {
     var domainName = DomainName(window.location.search.substring(1))
     var queryString = window.location.href.match(/sheetId(.*)/)
@@ -267,7 +271,7 @@ const GoogleSheetInput = function () {
 
       setDocumentTitle()
     }
-  }
+  }*/
 
   return self
 }
