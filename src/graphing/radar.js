@@ -520,8 +520,8 @@ const Radar = function (size, radar) {
         d3.select('.blip-item-description.expanded').classed('expanded', false)
       blipItemDescription.classed('expanded', !blipItemDescription.classed('expanded'))
 
-      blipItemDescription.on('click', function () {
-        d3.event.stopPropagation()
+      blipItemDescription.on('click', function (event) {
+        event.stopPropagation()
       })
     }
 
@@ -747,9 +747,9 @@ const Radar = function (size, radar) {
   }
 
   function plotHeader() {
-    document.querySelector('.hero-banner__title-text').innerHTML = "Technology Radar"
+    //document.querySelector('.hero-banner__title-text').innerHTML = "Technology Radar"
     const radarWrapper = d3.select('main .graph-placeholder')
-    document.querySelector('.hero-banner__title-text').addEventListener('click', redrawFullRadar)
+    //document.querySelector('.hero-banner__title-text').addEventListener('click', redrawFullRadar)
 
     buttonsGroup = radarWrapper.append('div').classed('buttons-group', true)
 
@@ -776,7 +776,7 @@ const Radar = function (size, radar) {
     _.each([0, 1, 2, 3], function (i) {
       addButton(quadrants[i])
     })
-
+/*
     buttonsGroup
       .append('div')
       .classed('print-radar-btn', true)
@@ -784,7 +784,7 @@ const Radar = function (size, radar) {
       .classed('print-radar button no-capitalize', true)
       .text('Print this radar')
       .on('click', window.print.bind(window))
-
+*/
     alternativeDiv
       .append('div')
       .classed('search-box', true)
