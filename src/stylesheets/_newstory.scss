@@ -317,7 +317,7 @@ img {
 }
 
 button,input,optgroup,select,textarea {
-    font-family: inherit;
+    //font-family: inherit;
     font-size: 100%;
     line-height: 1.15;
     margin: 0
@@ -811,7 +811,8 @@ img {
         margin-right:auto;
         margin-left: auto;
         max-width: var(--type-area-width-wide);
-        grid-template-columns: minmax(150px,25fr)75fr
+        justify-items: center;
+        //grid-template-columns: minmax(150px,25fr)75fr
     }
 }
 
@@ -820,7 +821,8 @@ img {
         margin-right:auto;
         margin-left: auto;
         max-width: var(--type-area-width-wide);
-        grid-template-columns: minmax(150px,20fr)75fr 5fr
+        justify-items: center;
+        //grid-template-columns: minmax(150px,20fr)75fr 5fr
     }
 }
 

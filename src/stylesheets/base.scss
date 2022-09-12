@@ -1,19 +1,179 @@
 @import 'colors';
 @import 'fonts';
-@import 'tip';
-@import 'form';
-@import 'error';
-@import 'header';
-@import 'footer';
-@import 'featuretoggles';
-@import 'herobanner';
-@import 'mediaqueries';
-@import 'layout';
+//@import 'form';
+//@import 'error';
+//@import 'header';
+//@import 'footer';
+//@import 'featuretoggles';
+//@import 'herobanner';
+//@import 'mediaqueries';
+//@import 'layout';
 @import 'landingpage';
 @import 'loader';
 //@import 'newstory';
-@import url(https://www.thoughtworks.com/css/k8s_production/screen.css);
+//@import url(https://www.thoughtworks.com/css/k8s_production/screen.css);
 
+.buttons-group {
+  padding: 15px 0 25px;
+}
+.button {
+  background: #221d1f;
+  border: none;
+  display: inline-block;
+  text-align: center;
+  font-family: "Open Sans","Microsoft YaHei","Hiragino Sans GB","Hiragino Sans GB W3","微软雅黑","Helvetica Neue",Arial,sans-serif;
+  background-position: 92% center!important;
+  background-repeat: no-repeat!important;
+}
+.quadrant-btn--group {
+  text-align: left;
+}
+.button:last-child {
+  margin-right: 0;
+}
+.button {
+  font-size: $baseFont;
+  text-transform: capitalize;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 2px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+
+  background-color: $grey-light;
+  color: $black;
+
+  &.no-capitalize {
+    text-transform: none;
+  }
+
+  &:hover,
+  &.selected {
+    transform: translate(0, -2px);
+    opacity: 0.85;
+
+    &.first {
+      color: white;
+      background-color: $green;
+    }
+
+    &.second {
+      color: white;
+      background-color: $blue;
+    }
+
+    &.third {
+      color: white;
+      background-color: $orange;
+    }
+
+    &.fourth {
+      color: white;
+      background-color: $violet;
+    }
+  }
+
+  &.full-view {
+    &.first {
+      background-color: $green;
+      color: $white;
+    }
+
+    &.second {
+      background-color: $blue;
+      color: $white;
+    }
+
+    &.third {
+      background-color: $orange;
+      color: $white;
+    }
+
+    &.fourth {
+      background-color: $violet;
+      color: $white;
+    }
+  }
+}
+.ui-autocomplete {
+  display: none;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  box-shadow: 1px 2px 6px;
+  background-color: #fff;
+  color: #221d1f;
+  -webkit-transition: left .1s ease-in-out;
+  transition: left .1s ease-in-out;
+  overflow-y: scroll;
+  max-height: 300px
+}
+.ui-menu-item {
+  cursor: pointer;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 0;
+  overflow: hidden
+}
+.ui-menu-item a {
+  text-decoration: none;
+  color: #221d1f;
+  width: 100%;
+  border: none;
+  display: inline-block;
+  padding-left: 10px
+}
+.ui-menu-item a:hover {
+  color: #221d1f
+}
+.ui-menu-item .ui-state-active,.ui-menu-item .ui-state-focus {
+  background-color: #444!important;
+  color: #fff!important
+}
+.ui-autocomplete {
+  width: 275px !important;
+
+  .ui-autocomplete-quadrant {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px;
+  }
+
+  .ui-menu-item {
+    white-space: normal;
+    font-size: 14px;
+    font-weight: 400;
+
+    .ui-menu-item-wrapper {
+      padding: 0 10px;
+    }
+  }
+}
+input,select,textarea {
+  font-family: "Open Sans","Microsoft YaHei","Hiragino Sans GB","Hiragino Sans GB W3","微软雅黑","Helvetica Neue",Arial,sans-serif;
+  display: inline-block;
+  height: 2.4em;
+  padding: 5px 15px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  width: 100%;
+  background-color: #ebebeb;
+  color: #666;
+  border-width: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border-radius: 2px;
+  border-bottom: 2px solid #d7d7d7 !important
+}
+input:focus,select:focus,textarea:focus {
+  box-shadow: inset 0 0 1px #000;
+  outline: 0;
+  border-bottom: 2px solid #6c6c6c !important
+}
+
+/*
 body {
   font: 18px 'Open Sans';
   opacity: 0;
@@ -52,7 +212,7 @@ body {
 
   -webkit-font-smoothing: antialiased;
   margin: 0;
-}
+}*/
 
 @media print {
   body,
@@ -195,7 +355,7 @@ body {
 
 @media screen {
   #radar {
-    width: 80%;
+    //width: 80%;
     margin: 0 auto;
     position: relative;
 
