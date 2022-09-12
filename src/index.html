@@ -2,8 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <title>New Story</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/images/favicon.ico" rel="icon" />
+    <link as=font crossorigin=anonymous href=https://cdn.newstory.nl/assets/fonts/adelle-sans/adelle-sans-bold.woff2 rel=preload type=font/woff2>
+    <link as=font crossorigin=anonymous href=https://cdn.newstory.nl/assets/fonts/adelle-sans/adelle-sans-regular.woff2 rel=preload type=font/woff2>
+    <link as=font crossorigin=anonymous href=https://cdn.newstory.nl/assets/fonts/prata/prata-regular.ttf rel=preload type=font/ttf>
+    <link href=https://newstory.nl/assets/web-app-settings/favicon.svg rel=icon type=image/svg+xml>
+    <link href=https://newstory.nl/assets/web-app-settings/favicon-96x96.png rel=icon sizes=96x96 type=image/png>
+    <link href=https://newstory.nl/assets/web-app-settings/favicon-32x32.png rel=icon sizes=32x32 type=image/png>
+    <link href=https://newstory.nl/assets/web-app-settings/favicon-16x16.png rel=icon sizes=16x16 type=image/png>
+    <meta content=hsl(216,100%,100%) name=theme-color>
+    <meta content=hsl(216,100%,58%) name=msapplication-TileColor>
+    <meta content=https://newstory.nl/assets/web-app-settings/mstile-558x558.png name=msapplication-TileImage>
+    <meta content=https://newstory.nl/assets/web-app-settings/browserconfig.xml name=msapplication-config>
+
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,19 +31,15 @@
     </header>
     <div class="hero-banner">
       <div class="hero-banner__wrapper">
-        <h1 class="hero-banner__title-text">Build Your Own Radar</h1>
+        <h1 class="hero-banner__title-text">Technology Radar</h1>
       </div>
     </div>
     <main>
       <div class="helper-description home-page">
-        <p>
-          Once you've <a href="https://www.thoughtworks.com/radar/byor">created your Radar</a> you can use this service
-          to generate an interactive version of your Technology Radar. Not sure how?
-          <a href="https://www.thoughtworks.com/radar/how-to-byor">Read this first.</a>
-        </p>
+        <p>One moment please...</p>
         <span class="loader-text">
           <span class="loader-text__title">Building your radar...</span>
-          <p>Your Technology Radar will be available in just a few seconds</p>
+          <p>The Technology Radar will be available in just a few seconds</p>
           <div class="loader-wrapper">
             <div style="animation-delay: 0s"></div>
             <div style="animation-delay: 0.25s"></div>
@@ -39,7 +48,7 @@
           </div>
         </span>
       </div>
-      <div class="input-sheet-form home-page">
+      <!--<div class="input-sheet-form home-page">
         <p>
           Enter the URL of your
           <a href="https://www.thoughtworks.com/radar/how-to-byor" target="_blank">Google Sheet, CSV or JSON</a> file
@@ -55,18 +64,44 @@
           <input type="submit" value="Build my radar" />
           <a href="https://www.thoughtworks.com/radar/how-to-byor">Need help?</a>
         </form>
-      </div>
+      </div>-->
       <div class="graph-placeholder" id="radar"></div>
     </main>
     <footer class="home-page">
       <p>
-        Powered by <a href="https://www.thoughtworks.com"> Thoughtworks</a>. By using this service you agree to
-        <a href="https://www.thoughtworks.com/radar/tos">Thoughtworks' terms of use</a>. You also agree to our
-        <a href="https://www.thoughtworks.com/privacy-policy">privacy policy</a>, which describes how we will gather,
-        use and protect any personal data contained in your public Google Sheet. This software is
+        Powered by <a href="https://www.thoughtworks.com"> Thoughtworks</a> Build Your Own Radar. This software is
         <a href="https://github.com/thoughtworks/build-your-own-radar">open source</a> and available for download and
         self-hosting.
       </p>
     </footer>
+
+    <script>
+    window.addEventListener("load", function(){
+      if(sessionStorage.getItem("exception") != null){sessionStorage.removeItem("exception")}
+      if(sessionStorage.getItem("finalHandler") != null){sessionStorage.removeItem("finalHandler")}
+    })
+
+    window.addEventListener("error", function(event){
+      let exception = event.error
+      if(exception == null){
+        exception = event
+      }
+      let exceptionObject = {name: exception.name, message: exception.message, stack: exception.stack}
+      console.log(exception)
+      sessionStorage.setItem("exception", JSON.stringify(exceptionObject))
+      window.location.assign(window.location.origin + "/error.html")
+    })
+
+    window.setTimeout(function(){
+      if(getComputedStyle(document.querySelector('.helper-description > p')).display == 'block'){
+        window.location.assign(window.location.origin + "/error.html")
+      }
+      /*window.setTimeout(function(){
+      if(getComputedStyle(document.querySelector('.helper-description > span > p')).display == 'block'){
+        window.location.assign(window.location.origin + "/error.html")
+      }
+    }, 5000);*/
+    }, 5000);
+    </script>
   </body>
 </html>

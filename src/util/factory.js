@@ -19,6 +19,7 @@ const MalformedDataError = require('../exceptions/malformedDataError')
 const SheetNotFoundError = require('../exceptions/sheetNotFoundError')
 const ContentValidator = require('./contentValidator')
 const Sheet = require('./sheet')
+const ErrorPage = require('./errorPage')
 const ExceptionMessages = require('./exceptionMessages')
 const GoogleAuth = require('./googleAuth')
 const config = require('../config')
@@ -232,10 +233,13 @@ const GoogleSheetInput = function () {
   var self = {}
   var sheet
 
-  sheet = JSONFile("https://ns-techradar-strapi.newstory.cloud/api/radars")
-  sheet.init().build()
+  //plotErrorMessage('a', 'json')
+  self.build = function () {
+    sheet = JSONFile("https://ns-techradar-strapi.newstory.cloud/api/radars")
+    sheet.init().build()
+  }
 
-  /*
+  /* //vervangen door een hardcoded link
   self.build = function () {
     var domainName = DomainName(window.location.search.substring(1))
     var queryString = window.location.href.match(/sheetId(.*)/)
@@ -296,7 +300,7 @@ function plotLoading(content) {
     plotFooter(content)
   } else {
     document.querySelector('.helper-description > p').style.display = 'none'
-    document.querySelector('.input-sheet-form').style.display = 'none'
+    //document.querySelector('.input-sheet-form').style.display = 'none'
     document.querySelector('.helper-description .loader-text').style.display = 'block'
   }
 }
@@ -351,9 +355,9 @@ function plotForm(content) {
 }
 
 function plotErrorMessage(exception, fileType) {
-  if (config.featureToggles.UIRefresh2022) {
+  //if (config.featureToggles.UIRefresh2022) {
     showErrorMessage(exception, fileType)
-  } else {
+  /*} else {
     const content = d3.select('body').append('div').attr('class', 'input-sheet')
     setDocumentTitle()
 
@@ -369,10 +373,12 @@ function plotErrorMessage(exception, fileType) {
     plotError(exception, content, fileType)
 
     plotFooter(content)
-  }
+  }*/
 }
 
 function plotError(exception, container, fileType) {
+  ErrorPage(exception, fileType)
+  /*
   let file = 'Google Sheet'
   if (fileType === 'json') {
     file = 'Json file'
@@ -398,7 +404,7 @@ function plotError(exception, container, fileType) {
   homePageURL += window.location.port === '' ? '' : ':' + window.location.port
   const homePage = '<a href=' + homePageURL + '>GO BACK</a>'
 
-  errorContainer.append('div').append('p').html(homePage)
+  errorContainer.append('div').append('p').html(homePage)*/
 }
 
 function showErrorMessage(exception, fileType) {

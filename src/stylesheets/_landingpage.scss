@@ -24,6 +24,15 @@
   }
 }
 
+.home-page {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    text-align: center;
+  }
+}
+
 .input-sheet-form {
   @include eight-column-layout-margin;
   display: flex;
