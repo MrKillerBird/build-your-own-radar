@@ -235,7 +235,8 @@ const GoogleSheetInput = function () {
 
   //plotErrorMessage('a', 'json')
   self.build = function () {
-    sheet = JSONFile("https://ns-techradar-strapi.newstory.cloud/api/radars")
+    //sheet = JSONFile("https://ns-techradar-strapi.newstory.cloud/api/radars")
+    sheet = JSONFile("http://localhost:1337/api/radars?populate=%2A")
     sheet.init().build()
   }
 
