@@ -495,8 +495,14 @@ const Radar = function (size, radar) {
       .append('div')
       .attr('id', 'blip-description-' + blip.number())
       .attr('class', 'blip-item-description')
+
+      
     if (blip.description()) {
-      blipItemDescription.append('p').html(blip.description())
+      blipItemDescription
+      .append('p').html(blip.description())
+      .append('br')
+      .append('a').html('test link test')
+
     }
 
     var mouseOver = function () {

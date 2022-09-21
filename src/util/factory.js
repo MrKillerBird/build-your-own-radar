@@ -31,7 +31,7 @@ const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
   if (title.endsWith('.json')) {
     title = title.substring(0, title.length - 5)
   }
-  document.title = title
+  //document.title = title
   d3.selectAll('.loading').remove()
 
   var rings = _.map(_.uniqBy(blips, 'ring'), 'ring')
