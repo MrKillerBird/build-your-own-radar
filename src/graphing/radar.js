@@ -24,9 +24,9 @@ const Radar = function (size, radar) {
     if (d3.select('.quadrant-table.selected').node()) {
       var selectedQuadrant = d3.select('.quadrant-table.selected')
       if (selectedQuadrant.classed('first') || selectedQuadrant.classed('fourth')) {
-        return 'ne'
+        return 'n' // was 'ne'
       } else {
-        return 'nw'
+        return 'n' // was 'nw'
       }
     }
     return 'n'
@@ -495,15 +495,25 @@ const Radar = function (size, radar) {
       .append('div')
       .attr('id', 'blip-description-' + blip.number())
       .attr('class', 'blip-item-description')
-
       
     if (blip.description()) {
       blipItemDescription
-      .append('p').html(blip.description())
-      .append('br')
-      .append('a').html('test link test')
-
+        .append('p').html(blip.description() + "<br>")
+        .append('button')
+        .attr('class', 'button')
+        .html('View History >')
+        .style('min-width', '160px')
+        .style('margin-top', '10px')
+    }else{
+      blipItemDescription
+        .append('p')
+        .append('button')
+        .attr('class', 'button')
+        .html('View History >')
+        .style('min-width', '160px')
     }
+    
+    var historyButton = blipItemDescription.select('p button')
 
     var mouseOver = function () {
       d3.selectAll('g.blip-link').attr('opacity', 0.3)
@@ -521,16 +531,30 @@ const Radar = function (size, radar) {
     blipListItem.on('mouseover', mouseOver).on('mouseout', mouseOut)
     group.on('mouseover', mouseOver).on('mouseout', mouseOut)
 
-    var clickBlip = function () {
+    var clickBlip = function () {     
       d3.select('.blip-item-description.expanded').node() !== blipItemDescription.node() &&
+        d3.select('.blip-item-description.expanded p button').html('View History >') &&
         d3.select('.blip-item-description.expanded').classed('expanded', false)
       blipItemDescription.classed('expanded', !blipItemDescription.classed('expanded'))
+
+      d3.select('.blip-list-item.expanded').node() !== blipListItem.select('.blip-list-item').node() &&
+        d3.select('.blip-list-item.expanded').classed('expanded', false)
+      blipListItem.select('.blip-list-item').classed('expanded', blipItemDescription.classed('expanded'))
 
       blipItemDescription.on('click', function (event) {
         event.stopPropagation()
       })
+      
+      historyButton.on('click', function (event) {
+        //event.stopPropagation()
+        if(historyButton.html() == 'View History &gt;'){
+          historyButton.html('Close History <')
+          console.log(blip.histories())
+        }else{
+          historyButton.html('View History >')
+        }
+      })
     }
-
     blipListItem.on('click', clickBlip)
   }
 
@@ -835,6 +859,8 @@ const Radar = function (size, radar) {
     d3.selectAll('.quadrant-table').classed('selected', false)
     d3.selectAll('.quadrant-table.' + order).classed('selected', true)
     d3.selectAll('.blip-item-description').classed('expanded', false)
+    d3.selectAll('.blip-list-item').classed('expanded', false)
+    d3.selectAll('.blip-item-description p button').html('View History >')
 
 
     var clientWidth = document.getElementById('radar-plot').clientWidth

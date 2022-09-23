@@ -25,6 +25,8 @@ const InputSanitizer = function () {
     _.forOwn(blip, function (value, key) {
       if(typeof value !== "object"){
         processedBlip[key.trim()] = value.trim()
+      }else{
+        processedBlip[key.trim()] = value
       }
     })
     return processedBlip
