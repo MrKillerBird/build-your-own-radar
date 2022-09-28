@@ -320,14 +320,48 @@ body {
       position: absolute;
       left: 0;
       right: 0;
-      background-color: grey;
+      background-color: white;
       visibility: hidden;
       opacity: 0.0;
-
+      white-space: nowrap;
+      //overflow-y: hidden;
+      
       &.expanded {
         transition: all 1s ease;
         visibility: visible;
         opacity: 1;
+        white-space: normal;
+      }
+      
+      h2 {
+        margin: 0;
+        padding: 4px 10px;
+        border: 4px solid transparent;
+        font-weight: 400;
+        line-height: normal;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 4px 4px 0 0;
+        white-space: nowrap;
+      }
+      
+      section {
+        transition: all 1s ease;
+        overflow-y: scroll;
+        //max-height: 60%;
+        //margin: 0;
+        padding: 20px;
+        background-color: lightgrey;
+        border-bottom: 4px solid rgba(0, 0, 0, 0.8);
+        border-radius: 0 0 4px 4px;
+
+        article {
+          transition: all 1s ease;
+          padding: 20px;
+          color: $grey-text;
+          //font-weight: 100;
+          //font-size: 18px;
+        }
       }
     }
 

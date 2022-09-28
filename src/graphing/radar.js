@@ -467,6 +467,11 @@ const Radar = function (size, radar) {
     let posRight = parseFloat(svg.style('right'))
     
     if(open && blip !== undefined){
+      let fullHistory = '<h2>' + blip.name() + ' - History</h2><section><article><h3>' + blip.ring().name() + '</h3><p>' + blip.description() + '</p></article>'
+      for (let i = 0; i < blip.histories().length; i++) {
+        fullHistory += '<article><h3>' + blip.histories()[i].ring + '</h3><p>' + blip.histories()[i].description + '</p></article>'// new Date(blip.histories()[i].createdAt)
+      }
+
       blipHistoryDiv.classed('expanded', true)
       blipHistoryDiv.style('width', size + 40 + 'px')
       
@@ -475,14 +480,9 @@ const Radar = function (size, radar) {
       }
       //blipHistoryDiv.style('left', parseFloat(blipHistoryDiv.style('left')) - size + 'px').style('right', parseFloat(blipHistoryDiv.style('right')) + size + 'px')
       console.log(blip.histories())
-
       
-      let fullHistory = '<h2>' + blip.name() + '</h2><article><h3>' + blip.ring().name() + '</h3><p>' + blip.description() + '</p></article>'
-      for (let i = 0; i < blip.histories().length; i++) {
-        fullHistory += '<article><h3>' + blip.histories()[i].ring + '</h3><p>' + blip.histories()[i].description + '</p></article>'// new Date(blip.histories()[i].createdAt)
-      }
-      blipHistoryDiv.html(fullHistory)
-
+      blipHistoryDiv.html(fullHistory + '</section>')
+      blipHistoryDiv.select('section').style('max-height', parseFloat(svg.style('height')) - parseFloat(blipHistoryDiv.select('h2').style('height'))*2 + 'px')
     }else if(!open){
       blipHistoryDiv.classed('expanded', false)
       blipHistoryDiv.style('width', 40 + 'px')
