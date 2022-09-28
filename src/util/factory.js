@@ -70,7 +70,7 @@ const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
     radar.setCurrentSheet(currentRadarName)
   }
 
-  var size = window.innerHeight - 133 < 620 ? 620 : window.innerHeight - 133
+  var size = (window.innerHeight - 133 < 620 ? 620 : window.innerHeight - 133) * 1.29
 
   new GraphingRadar(size, radar).init().plot()
 }
@@ -237,6 +237,7 @@ const GoogleSheetInput = function () {
   self.build = function () {
     //sheet = JSONFile("https://ns-techradar-strapi.newstory.cloud/api/radars")
     sheet = JSONFile("http://localhost:1337/api/radars?populate=%2A")
+    //sheet = JSONFile("https://raw.githubusercontent.com/MrKillerBird/build-your-own-radar/development/src/json/radars.json")
     sheet.init().build()
   }
 

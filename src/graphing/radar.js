@@ -12,7 +12,7 @@ const MIN_BLIP_WIDTH = 12
 const ANIMATION_DURATION = 1000
 
 const Radar = function (size, radar) {
-  var svg, radarElement, quadrantButtons, buttonsGroup, header, alternativeDiv
+  var svg, blipHistoryDiv, radarElement, quadrantButtons, buttonsGroup, header, alternativeDiv
 
   var tip = d3tip()
     .attr('class', 'd3-tip')
@@ -128,59 +128,66 @@ const Radar = function (size, radar) {
       .append('circle')
       .attr(
         'r',
-        blip.width * 1.35
+        blip.width * 7/11 * 1.45
       )
       .attr(
         'transform',
         'scale(' +
           blip.width / 80 +
           ') translate(' +
-          (20 + x * (80 / blip.width) - 17) +
+          (21 + x * (80 / blip.width) - 17) +
           ', ' +
-          (20 + y * (80 / blip.width) - 17) +
+          (16 + y * (80 / blip.width) - 17) +
           ')',
       )
+      .attr('stroke-width', 0)
       .attr('class', order),
     group
-      .append('path')
+      .append('circle')
       .attr(
-        'd',
-        'M75,119.17c-24.35,0-44.17-19.81-44.17-44.17S50.65,30.83,75,30.83c24.35,0,44.16,19.81,44.16,44.17 S99.35,119.17,75,119.17z M75,38.54C54.9,38.54,38.54,54.9,38.54,75S54.9,111.46,75,111.46S111.46,95.1,111.46,75 S95.11,38.54,75,38.54z',
+        'r',
+        blip.width * 10/11 * 1.45
       )
       .attr(
         'transform',
         'scale(' +
           blip.width / 80 +
           ') translate(' +
-          (-55 + x * (80 / blip.width) - 17) +
+          (21 + x * (80 / blip.width) - 17) +
           ', ' +
-          (-55 + y * (80 / blip.width) - 17) +
+          (16 + y * (80 / blip.width) - 17) +
           ')',
       )
+      .attr('fill-opacity', 0)
+      .attr('stroke-width', blip.width * 2/11 * 1.45)
+      
       .attr('class', order)
   }
 
   function circleNewLegend(x, y, group) {
+    //group = group.append('g')
     return group
       .append('circle')
       .attr(
         'r',
-        26
+        6.5
       )
       .attr(
         'transform',
-        'scale(' + 22 / 128 + ') translate(' + (20 + x * (128 / 22) - 17) + ', ' + (20 + y * (128 / 22) - 17) + ')',
+        'scale(' + 22 / 32 + ') translate(' + (18 + x * (32 / 22) - 17) + ', ' + (17 + y * (32 / 22) - 17) + ')',
       ),
-    group
-      .append('path')
+      group
+      .append('circle')
       .attr(
-        'd',
-        'M75,119.17c-24.35,0-44.17-19.81-44.17-44.17S50.65,30.83,75,30.83c24.35,0,44.16,19.81,44.16,44.17 S99.35,119.17,75,119.17z M75,38.54C54.9,38.54,38.54,54.9,38.54,75S54.9,111.46,75,111.46S111.46,95.1,111.46,75 S95.11,38.54,75,38.54z',
+        'r',
+        9.5
       )
       .attr(
         'transform',
-        'scale(' + 22 / 128 + ') translate(' + (-55 + x * (128 / 22) - 17) + ', ' + (-55 + y * (128 / 22) - 17) + ')',
+        'scale(' + 22 / 32 + ') translate(' + (18 + x * (32 / 22) - 17) + ', ' + (17 + y * (32 / 22) - 17) + ')',
       )
+      .attr('fill-opacity', 0)
+      .attr('stroke', 'black').attr('stroke-width', 2)
   }
 
   function circle(blip, x, y, order, group) {
@@ -188,18 +195,19 @@ const Radar = function (size, radar) {
       .append('circle')
       .attr(
         'r',
-        blip.width * 1.35
+        blip.width * 7/11 * 1.45
       )
       .attr(
         'transform',
         'scale(' +
           blip.width / 80 +
           ') translate(' +
-          (20 + x * (80 / blip.width) - 17) +
+          (21 + x * (80 / blip.width) - 17) +
           ', ' +
-          (20 + y * (80 / blip.width) - 17) +
+          (16 + y * (80 / blip.width) - 17) +
           ')',
       )
+      .attr('stroke-width', 0)
       .attr('class', order)
   }
 
@@ -208,11 +216,11 @@ const Radar = function (size, radar) {
       .append('circle')
       .attr(
         'r',
-        25
+        6.5
       )
       .attr(
         'transform',
-        'scale(' + 22 / 128 + ') translate(' + (20 + x * (128 / 22) - 17) + ', ' + (16 + y * (128 / 22) - 17) + ')',
+        'scale(' + 22 / 32 + ') translate(' + (18 + x * (32 / 22) - 17) + ', ' + (17 + y * (32 / 22) - 17) + ')',
       )
   }
 
@@ -454,6 +462,41 @@ const Radar = function (size, radar) {
     }
   }
 
+  function historyOverlay(open, blip){ // opent of sluit de history weergave
+    let posLeft = parseFloat(svg.style('left'))
+    let posRight = parseFloat(svg.style('right'))
+    
+    if(open && blip !== undefined){
+      blipHistoryDiv.classed('expanded', true)
+      blipHistoryDiv.style('width', size + 40 + 'px')
+      
+      if(posLeft > posRight){
+        blipHistoryDiv.style('left', posLeft + parseFloat(svg.style('width')) - size + 'px')
+      }
+      //blipHistoryDiv.style('left', parseFloat(blipHistoryDiv.style('left')) - size + 'px').style('right', parseFloat(blipHistoryDiv.style('right')) + size + 'px')
+      console.log(blip.histories())
+
+      
+      let fullHistory = '<h2>' + blip.name() + '</h2><article><h3>' + blip.ring().name() + '</h3><p>' + blip.description() + '</p></article>'
+      for (let i = 0; i < blip.histories().length; i++) {
+        fullHistory += '<article><h3>' + blip.histories()[i].ring + '</h3><p>' + blip.histories()[i].description + '</p></article>'// new Date(blip.histories()[i].createdAt)
+      }
+      blipHistoryDiv.html(fullHistory)
+
+    }else if(!open){
+      blipHistoryDiv.classed('expanded', false)
+      blipHistoryDiv.style('width', 40 + 'px')
+
+      if(posLeft > posRight){
+        blipHistoryDiv.style('right', posRight - parseFloat(blipHistoryDiv.style('width')) + 'px')
+        blipHistoryDiv.style('left', posLeft + parseFloat(svg.style('width')) + 'px')
+      }else{
+        blipHistoryDiv.style('left', posLeft - parseFloat(blipHistoryDiv.style('width')) + 'px')
+        blipHistoryDiv.style('right', posRight + parseFloat(svg.style('width')) + 'px')
+      }
+    }
+  }
+
   function drawBlipInCoordinates(blip, coordinates, order, quadrantGroup, ringList) {
     var x = coordinates[0]
     var y = coordinates[1]
@@ -464,13 +507,13 @@ const Radar = function (size, radar) {
       .attr('id', 'blip-link-' + blip.number())
 
     if (blip.isNew()) {
-      circleNew(blip, x, y, order, group)
+      circle(blip, x, y, order, group)
     } else if(blip.movedUp()) { 
       triangleUp(blip, x, y, order, group)
     } else if(blip.movedDown()) { 
       triangleDown(blip, x, y, order, group)
     } else {
-      circle(blip, x, y, order, group)
+      circleNew(blip, x, y, order, group)
     }
 
     group
@@ -504,6 +547,7 @@ const Radar = function (size, radar) {
         .html('View History >')
         .style('min-width', '160px')
         .style('margin-top', '10px')
+        .style('margin-bottom', '10px')
     }else{
       blipItemDescription
         .append('p')
@@ -531,7 +575,7 @@ const Radar = function (size, radar) {
     blipListItem.on('mouseover', mouseOver).on('mouseout', mouseOut)
     group.on('mouseover', mouseOver).on('mouseout', mouseOut)
 
-    var clickBlip = function () {     
+    var clickBlip = function () {
       d3.select('.blip-item-description.expanded').node() !== blipItemDescription.node() &&
         d3.select('.blip-item-description.expanded p button').html('View History >') &&
         d3.select('.blip-item-description.expanded').classed('expanded', false)
@@ -544,16 +588,19 @@ const Radar = function (size, radar) {
       blipItemDescription.on('click', function (event) {
         event.stopPropagation()
       })
-      
-      historyButton.on('click', function (event) {
-        //event.stopPropagation()
+
+      historyButton.html('View History >')
+      historyOverlay(false) // sluit history weergave als een lijst item wordt gesloten of een ander wordt geopend
+      historyButton.on('click', function() {
         if(historyButton.html() == 'View History &gt;'){
           historyButton.html('Close History <')
-          console.log(blip.histories())
+          historyOverlay(true, blip)
         }else{
           historyButton.html('View History >')
+          historyOverlay(false)
         }
       })
+
     }
     blipListItem.on('click', clickBlip)
   }
@@ -704,6 +751,7 @@ const Radar = function (size, radar) {
 
   function redrawFullRadar() {
     removeHomeLink()
+    historyOverlay(false)
     removeRadarLegend()
     drawLegend()
     tip.hide()
@@ -861,12 +909,13 @@ const Radar = function (size, radar) {
     d3.selectAll('.blip-item-description').classed('expanded', false)
     d3.selectAll('.blip-list-item').classed('expanded', false)
     d3.selectAll('.blip-item-description p button').html('View History >')
-
+    historyOverlay(false)
+    //blipHistoryDiv.style('display', 'none')
 
     var clientWidth = document.getElementById('radar-plot').clientWidth
-    var scale = 1 + clientWidth / 1000 * 0.8
+    var scale = 1.95 //+ clientWidth / 1000 * 0.4
 
-    var adjustX = Math.sin(toRadian(startAngle)) - Math.cos(toRadian(startAngle))
+    var adjustX = Math.round(Math.sin(toRadian(startAngle)) - Math.cos(toRadian(startAngle)))
     var adjustY = Math.cos(toRadian(startAngle)) + Math.sin(toRadian(startAngle))
 
     var translateX = ((-1 * (1 + adjustX) * size) / 2) * (scale - 1) + -adjustX * (1 - scale / 2) * size
@@ -882,6 +931,17 @@ const Radar = function (size, radar) {
     var blipTranslate = (1 - blipScale) / blipScale
 
     svg.style('left', moveLeft + 'px').style('right', moveRight + 'px')
+    blipHistoryDiv
+      .style('width', 40 + 'px').style('height', size + 14 + 'px')
+    
+    if(moveLeft > moveRight){
+      blipHistoryDiv.style('right', moveRight - parseFloat(blipHistoryDiv.style('width')) + 'px')
+      blipHistoryDiv.style('left', moveLeft + parseFloat(svg.style('width')) + 'px')
+    }else{
+      blipHistoryDiv.style('left', moveLeft - parseFloat(blipHistoryDiv.style('width')) + 'px')
+      blipHistoryDiv.style('right', moveRight + parseFloat(svg.style('width')) + 'px')
+    }
+
     d3.select('.quadrant-group-' + order)
       .transition()
       .duration(ANIMATION_DURATION)
@@ -973,6 +1033,13 @@ const Radar = function (size, radar) {
       .attr('id', 'radar-plot')
       .attr('width', size)
       .attr('height', size + 14)
+
+    blipHistoryDiv = radarElement.append('div')
+    blipHistoryDiv
+      .attr('id', 'blip-history')
+      .style('width', size + 'px')
+      .style('height', size + 14 + 'px')
+      //.append('p').text('test')
 
     _.each(quadrants, function (quadrant) {
       var quadrantGroup = plotQuadrant(rings, quadrant)
