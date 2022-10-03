@@ -467,13 +467,14 @@ const Radar = function (size, radar) {
     let posRight = parseFloat(svg.style('right'))
     
     if(open && blip !== undefined){
-      let fullHistory = '<h2>' + blip.name() + ' - History</h2><section><article><h3>' + blip.ring().name() + '</h3><p>' + blip.description() + '</p></article>'
+      let fullHistory = '<article><h3>' + blip.ring().name().toUpperCase() + '</h3><p>' + blip.description() + '</p></article>'
       for (let i = 0; i < blip.histories().length; i++) {
-        fullHistory += '<article><h3>' + blip.histories()[i].ring + '</h3><p>' + blip.histories()[i].description + '</p></article>'// new Date(blip.histories()[i].createdAt)
+        fullHistory += '<article><h3>' + blip.histories()[i].ring.toUpperCase() + '</h3><p>' + blip.histories()[i].description + '</p></article>'// new Date(blip.histories()[i].createdAt)
       }
 
       blipHistoryDiv.classed('expanded', true)
-      blipHistoryDiv.style('width', size + 40 + 'px')
+      blipHistoryDiv.style('width', size + 'px')
+      blipHistoryDiv.select('section').style('max-height', parseFloat(svg.style('height')) - parseFloat(blipHistoryDiv.select('h2').style('height'))*2 + 'px')
       
       if(posLeft > posRight){
         blipHistoryDiv.style('left', posLeft + parseFloat(svg.style('width')) - size + 'px')
@@ -481,11 +482,12 @@ const Radar = function (size, radar) {
       //blipHistoryDiv.style('left', parseFloat(blipHistoryDiv.style('left')) - size + 'px').style('right', parseFloat(blipHistoryDiv.style('right')) + size + 'px')
       console.log(blip.histories())
       
-      blipHistoryDiv.html(fullHistory + '</section>')
-      blipHistoryDiv.select('section').style('max-height', parseFloat(svg.style('height')) - parseFloat(blipHistoryDiv.select('h2').style('height'))*2 + 'px')
+      blipHistoryDiv.select('h2').html(blip.name() + ' - History')
+      blipHistoryDiv.select('section').html(fullHistory)
     }else if(!open){
       blipHistoryDiv.classed('expanded', false)
-      blipHistoryDiv.style('width', 40 + 'px')
+      blipHistoryDiv.style('width', 0 + 'px')
+      blipHistoryDiv.select('section').style('max-height', 0)
 
       if(posLeft > posRight){
         blipHistoryDiv.style('right', posRight - parseFloat(blipHistoryDiv.style('width')) + 'px')
@@ -708,8 +710,6 @@ const Radar = function (size, radar) {
     legend=container.append('g')
     legend.attr('transform', 'scale(' + legendScale + ')')
     
-    
-
     NewStoryLogo(logoX, logoY, logoScale, label)
 
     circleNewLegend(x, y + 30, legend)
@@ -931,8 +931,7 @@ const Radar = function (size, radar) {
     var blipTranslate = (1 - blipScale) / blipScale
 
     svg.style('left', moveLeft + 'px').style('right', moveRight + 'px')
-    blipHistoryDiv
-      .style('width', 40 + 'px').style('height', size + 14 + 'px')
+    blipHistoryDiv.style('width', 0 + 'px').style('height', size + 14 + 'px')
     
     if(moveLeft > moveRight){
       blipHistoryDiv.style('right', moveRight - parseFloat(blipHistoryDiv.style('width')) + 'px')
@@ -1039,7 +1038,9 @@ const Radar = function (size, radar) {
       .attr('id', 'blip-history')
       .style('width', size + 'px')
       .style('height', size + 14 + 'px')
-      //.append('p').text('test')
+      .append('h2')
+    blipHistoryDiv
+      .append('section')
 
     _.each(quadrants, function (quadrant) {
       var quadrantGroup = plotQuadrant(rings, quadrant)
