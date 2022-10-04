@@ -469,7 +469,9 @@ const Radar = function (size, radar) {
     if(open && blip !== undefined){
       let fullHistory = '<article><h3>' + blip.ring().name().toUpperCase() + '</h3><p>' + blip.description() + '</p></article>'
       for (let i = 0; i < blip.histories().length; i++) {
-        fullHistory += '<article><h3>' + blip.histories()[i].ring.toUpperCase() + '</h3><p>' + blip.histories()[i].description + '</p></article>'// new Date(blip.histories()[i].createdAt)
+        const date = new Date(blip.histories()[i].createdAt)
+        let dateString = new Intl.DateTimeFormat('default', {dateStyle: 'long'}).format(date)
+        fullHistory += '<article><h3>' + blip.histories()[i].ring.toUpperCase() + '</h3><h5 class="history-date">' + dateString + '</h5><p>' + blip.histories()[i].description + '</p></article>'
       }
 
       blipHistoryDiv.classed('expanded', true)
