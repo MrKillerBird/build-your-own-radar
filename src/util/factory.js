@@ -181,7 +181,7 @@ const CSVDocument = function (url) {
   return self
 }
 
-const JSONFile = function (url) {
+const JSONFile = function (url, radarName) {
   var self = {}
 
   self.build = function () {
@@ -199,7 +199,8 @@ const JSONFile = function (url) {
       contentValidator.verifyContent()
       contentValidator.verifyHeaders()
       var blips = _.map(data, new InputSanitizer().sanitize)
-      plotRadar(FileName(url), blips, 'JSON File', [])
+      //plotRadar(FileName(url), blips, 'JSON File', []) // origineel
+      plotRadar(radarName, blips, radarName, ['radar','radar 2'])
     } catch (exception) {
       plotErrorMessage(exception, 'json')
     }
@@ -232,12 +233,16 @@ const FileName = function (url) {
 const GoogleSheetInput = function () {
   var self = {}
   var sheet
-
+  var queryString = window.location.href.match(/sheetName(.*)/)
+  var queryParams = queryString ? QueryParams(queryString[0]) : {}
+  
   //plotErrorMessage('a', 'json')
   self.build = function () {
     //sheet = JSONFile("https://ns-techradar-strapi.newstory.cloud/api/radars")
-    sheet = JSONFile("http://localhost:1337/api/radars?populate=%2A")
+    //sheet = JSONFile("http://localhost:1337/api/radars?populate=%2A")
     //sheet = JSONFile("https://raw.githubusercontent.com/MrKillerBird/build-your-own-radar/development/src/json/radars.json")
+    
+    sheet = queryParams.sheetName === 'radar 2' ? JSONFile("http://localhost:1337/api/radars?populate=%2A", 'radar 2') : JSONFile("https://ns-techradar-strapi.newstory.cloud/api/radars", 'radar')
     sheet.init().build()
   }
 

@@ -7,6 +7,7 @@ const RingCalculator = require('../util/ringCalculator')
 const QueryParams = require('../util/queryParamProcessor')
 const AutoComplete = require('../util/autoComplete')
 const config = require('../config')
+const { isEmptyObject } = require('jquery')
 
 const MIN_BLIP_WIDTH = 12
 const ANIMATION_DURATION = 1000
@@ -546,19 +547,19 @@ const Radar = function (size, radar) {
     if (blip.description()) {
       blipItemDescription
         .append('p').html(blip.description() + "<br>")
-        .append('button')
-        .attr('class', 'button')
-        .html('View History >')
-        .style('min-width', '160px')
-        .style('margin-top', '10px')
-        .style('margin-bottom', '10px')
     }else{
       blipItemDescription
-        .append('p')
-        .append('button')
-        .attr('class', 'button')
-        .html('View History >')
-        .style('min-width', '160px')
+        .append('p').html('No description.' + "<br>")
+    }
+    
+    if(!isEmptyObject(blip.histories())){
+      blipItemDescription
+      .select('p').append('button')
+      .attr('class', 'button')
+      .html('View History >')
+      .style('min-width', '160px')
+      .style('margin-top', '10px')
+      //.style('margin-bottom', '10px')
     }
     
     var historyButton = blipItemDescription.select('p button')
@@ -977,19 +978,21 @@ const Radar = function (size, radar) {
 
   function constructSheetUrl(sheetName) {
     var noParamUrl = window.location.href.substring(0, window.location.href.indexOf(window.location.search))
-    var queryParams = QueryParams(window.location.search.substring(1))
-    var sheetUrl = noParamUrl + '?sheetId=' + queryParams.sheetId + '&sheetName=' + encodeURIComponent(sheetName)
+    //var queryParams = QueryParams(window.location.search.substring(1))
+    //var sheetUrl = noParamUrl + '?sheetId=' + queryParams.sheetId + '&sheetName=' + encodeURIComponent(sheetName)
+    var sheetUrl = noParamUrl + '?sheetName=' + encodeURIComponent(sheetName)
     return sheetUrl
   }
 
   function plotAlternativeRadars(alternatives, currentSheet) {
     var alternativeSheetButton = alternativeDiv.append('div').classed('multiple-sheet-button-group', true)
-
-    alternativeSheetButton.append('p').text('Choose a sheet to populate radar')
+    let buttonClasses = ['one','two','three','four']
+    let classIndex = 0
+    alternativeSheetButton.append('p').text('Choose a radar')
     alternatives.forEach(function (alternative) {
       alternativeSheetButton
         .append('div:a')
-        .attr('class', 'first full-view alternative multiple-sheet-button')
+        .attr('class', 'button-style ' + buttonClasses[classIndex] + ' alternative multiple-sheet-button')
         .attr('href', constructSheetUrl(alternative))
         .text(alternative)
 
@@ -998,8 +1001,9 @@ const Radar = function (size, radar) {
           .filter(function () {
             return d3.select(this).text() === alternative
           })
-          .attr('class', 'highlight multiple-sheet-button')
+          .attr('class', 'button-style ' + buttonClasses[classIndex] + ' highlight multiple-sheet-button')
       }
+      classIndex++
     })
   }
 

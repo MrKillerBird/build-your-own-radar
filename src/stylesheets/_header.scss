@@ -153,19 +153,62 @@ header {
   }
 }
 
+.button-style { // de code voegt de full-view class toe aan de knoppen met de .buttons class, dus dit is voor knoppen waarbij dat niet moet
+  border: none;
+  display: inline-block;
+  text-align: center;
+  font-weight: 100;
+  font-family: "Open Sans","Microsoft YaHei","Hiragino Sans GB","Hiragino Sans GB W3","微软雅黑","Helvetica Neue",Arial,sans-serif;
+  background-position: 92% center!important;
+  background-repeat: no-repeat!important;
+  
+  font-size: 17px;
+  text-transform: capitalize;
+  margin-right: 20px;
+  border-radius: 2px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+
+  background-color: $grey-light;
+  color: $black;
+}
+
 #alternative-buttons {
   margin-bottom: 50px;
-
-  .highlight {
-    border-bottom: none;
-    font-weight: bold;
-  }
 
   p {
     font-size: 16px;
     font-weight: 700;
     margin-top: 0;
     margin-bottom: 10px;
+  }
+
+  .multiple-sheet-button-group {
+    &:not(:has(.multiple-sheet-button:focus)) .highlight, .multiple-sheet-button:is(:hover, :focus) {
+      transform: translate(0, -2px);
+      opacity: 0.85;
+      
+      &.one {
+        background-color: $flamingo;
+        color: $white;
+      }
+
+      &.two {
+        background-color: $sapphire;
+        color: $white;
+      }
+
+      &.three {
+        background-color: $jade;
+        color: $white;
+      }
+
+      &.four {
+        background-color: $amethyst;
+        color: $white;
+      }
+    }
   }
 
   .multiple-sheet-button {
