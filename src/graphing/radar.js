@@ -468,7 +468,7 @@ const Radar = function (size, radar) {
     let posRight = parseFloat(svg.style('right'))
     
     if(open && blip !== undefined){
-      let fullHistory = '<article><h3>' + blip.ring().name().toUpperCase() + '</h3><p>' + blip.description() + '</p></article>'
+      let fullHistory = '' //'<article><h3>' + blip.ring().name().toUpperCase() + '</h3><p>' + blip.description() + '</p></article>'
       for (let i = 0; i < blip.histories().length; i++) {
         const date = new Date(blip.histories()[i].createdAt)
         let dateString = new Intl.DateTimeFormat('default', {dateStyle: 'long'}).format(date)
@@ -512,13 +512,13 @@ const Radar = function (size, radar) {
       .attr('id', 'blip-link-' + blip.number())
 
     if (blip.isNew()) {
-      circle(blip, x, y, order, group)
+      circleNew(blip, x, y, order, group)
     } else if(blip.movedUp()) { 
       triangleUp(blip, x, y, order, group)
     } else if(blip.movedDown()) { 
       triangleDown(blip, x, y, order, group)
     } else {
-      circleNew(blip, x, y, order, group)
+      circle(blip, x, y, order, group)
     }
 
     group
