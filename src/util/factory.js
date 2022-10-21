@@ -242,7 +242,7 @@ const GoogleSheetInput = function () {
     //sheet = JSONFile("http://localhost:1337/api/radars?populate=%2A")
     //sheet = JSONFile("https://raw.githubusercontent.com/MrKillerBird/build-your-own-radar/development/src/json/radars.json")
     
-    sheet = queryParams.sheetName === 'radar 2' ? JSONFile("http://localhost:1337/api/radars?populate=%2A", 'radar 2') : JSONFile("https://ns-techradar-strapi.newstory.cloud/api/radars", 'radar')
+    sheet = queryParams.sheetName === 'radar 2' ? JSONFile("http://localhost:1337/api/radars?populate=%2A", 'radar 2') : JSONFile("https://ns-techradar-strapi.newstory.cloud/api/radars?populate=%2A", 'radar')
     sheet.init().build()
   }
 
